@@ -11,7 +11,6 @@ public abstract class Statement {
         return name;
     }
 
-//    public List<String> parse(String statement){
-//
-//    }
+    public boolean checkQuery(List<String> arguments){ return true; }
+
 }
