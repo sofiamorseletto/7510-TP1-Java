@@ -13,7 +13,7 @@ public class App
 	public static void main(String[] args) {
 	    String input;
 	    Database db = Database.getInstance();
-	    db.parseDb("src/main/resources/rules0.db");
+	    db.parseDb("src/main/resources/rules.db");
 		System.out.println("Ingrese la query que desea buscar");
         System.out.println("Ingrese exit para finalizar el programa");
 

@@ -30,7 +30,6 @@ public class Database {
         }
     }
 
-    //Ver si hacerlo privado y testear con reflection
     public void parseLine(String line){
         Rule rule = new Rule();
         List<Fact> ruleFacts = rule.parse(line);
@@ -40,7 +39,7 @@ public class Database {
             rules.add(rule);
             statements.put(rule.getName(), rules);
         }else if(ruleFacts != null){
-            statements.get(rule.getName()).add(rule); //Ver si esto se actualiza en el map
+            statements.get(rule.getName()).add(rule);
         }else{
             Fact fact = new Fact();
             List<String> args = fact.parse(line);
@@ -50,11 +49,8 @@ public class Database {
                 facts.add(fact);
                 statements.put(fact.getName(), facts);
             }else if(args != null){
-                statements.get(fact.getName()).add(fact); //Ver si esto se actualiza en el map
+                statements.get(fact.getName()).add(fact);
             }
-//            else
-//                throw new Exception(); //Ver de hacer una clase
-//            Si base esta mal, que tire exception
         }
     }
 

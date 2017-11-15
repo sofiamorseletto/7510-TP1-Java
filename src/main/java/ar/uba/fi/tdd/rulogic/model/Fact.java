@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 // La que seria la clase LEAF
 public class Fact extends Statement{
-    private String pattern = "[\\s]*?([a-zA-Z]*)\\(((.*[\\w\\s$]*),?[\\s]*(.*[\\w\\s$]*))\\).?";
+    private String pattern = "[\\s]*?([a-zA-Z]*)[\\s]*?\\([\\s]*((.*[\\w\\s$]*),?[\\s]*(.*[\\w\\s$]*))\\).?";
     private List<String> args;
 
     public Fact(){
@@ -27,10 +27,7 @@ public class Fact extends Statement{
         name = m.group(1);
         String[] v = m.group(2).split(",[\\s]*");
         for(int i = 0; i < v.length; ++i)
-            args.add(v[i]);
-
-//        for(int i = 3; i <= m.groupCount(); ++i)
-//            args.add(m.group(i));
+            args.add(v[i].trim());
 
         return args;
     }

@@ -52,4 +52,12 @@ public class DatabaseTest {
 
         Assert.assertFalse(db.checkQuery("hijo(pedro, luis)"));
     }
+
+    @Test
+    public void checkQueryRuleTioShouldReturnTrue(){
+        Database db = Database.getInstance();
+        db.parseDb("src/main/resources/rules.db");
+
+        Assert.assertTrue(db.checkQuery("tio(nicolas, alejandro, roberto)"));
+    }
 }

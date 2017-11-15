@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 // La que seria la clase COMPOSITE
 public class Rule extends Statement{
-    private String pattern = "[\\s]*?([a-zA-Z]*)(\\((.*[\\w\\s,$]*)\\)) :- (.*)";
+    private String pattern = "[\\s]*?([a-zA-Z]*)(\\((.*[\\w\\s,$]*)\\))[\\s]*?:-[\\s]*?(.*)";
     private List<Fact> facts;
     private String[] references;
 
@@ -24,15 +24,15 @@ public class Rule extends Statement{
         if(!m.find())
             return null;
 
-        name = m.group(1);
-        references = m.group(3).split(",[\\s]*");
+        name = m.group(1).trim();
+        references = m.group(3).trim().split(",[\\s]*");
 
         Pattern r2 = Pattern.compile("[\\s]?([\\sa-zA-Z]*\\([\\sa-zA-Z,]*\\))");
         Matcher m2 = r2.matcher(m.group(4));
 
         while (m2.find()) {
             Fact fact = new Fact();
-            fact.parse(m2.group(1));
+            fact.parse(m2.group(1).trim());
             facts.add(fact);
         }
 

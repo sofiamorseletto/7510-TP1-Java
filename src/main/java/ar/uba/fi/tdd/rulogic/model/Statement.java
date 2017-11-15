@@ -1,9 +1,8 @@
 package ar.uba.fi.tdd.rulogic.model;
 
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
+// La que seria la clase COMPONENT
 public abstract class Statement {
     protected String name;
 
